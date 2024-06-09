@@ -1,14 +1,10 @@
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::Clamped;
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement, HtmlButtonElement, ImageData, window};
-use log::Level;
 use js_sys::Date;
 
 #[wasm_bindgen(start)]
 pub fn main() -> Result<(), JsValue> {
-    console_log::init_with_level(Level::Info).expect("error initializing logger");
-    console_error_panic_hook::set_once();
-
     let document = window().unwrap().document().unwrap();
     let body = document.body().unwrap();
 
@@ -19,8 +15,8 @@ pub fn main() -> Result<(), JsValue> {
 
     let canvas: HtmlCanvasElement = document.create_element("canvas")?.dyn_into()?;
     canvas.set_id("canvas");
-    canvas.set_width(800);
-    canvas.set_height(600);
+    canvas.set_width(1600);
+    canvas.set_height(1200);
     body.append_child(&canvas)?;
 
     let render_time_p = document.create_element("p")?.dyn_into::<web_sys::Element>()?;
@@ -34,17 +30,11 @@ pub fn main() -> Result<(), JsValue> {
             .dyn_into::<CanvasRenderingContext2d>().unwrap();
 
         let start_time = Date::now();
-        match render_mandelbrot(800, 600) {
-            Ok(image_data) => {
-                ctx.put_image_data(&image_data, 0.0, 0.0).unwrap();
-                let end_time = Date::now();
-                let render_time_p = document.get_element_by_id("render-time").unwrap();
-                render_time_p.set_text_content(Some(&format!("Render Time: {:.2} ms", end_time - start_time)));
-            },
-            Err(err) => {
-                log::error!("Error rendering mandelbrot: {:?}", err);
-            }
-        };
+        let image_date = render_mandelbrot(1600, 1200).unwrap();
+        ctx.put_image_data(&image_date, 0.0, 0.0).unwrap();
+        let end_time = Date::now();
+        let render_time_p = document.get_element_by_id("render-time").unwrap();
+        render_time_p.set_text_content(Some(&format!("Render Time: {:.2} ms", end_time - start_time)));
     }) as Box<dyn FnMut()>);
 
     button.set_onclick(Some(closure.as_ref().unchecked_ref()));
