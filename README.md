@@ -11,7 +11,7 @@ This project is a simple experiment to generate and display the Mandelbrot fract
 - **Interactive Rendering**: A button allows users to render the Mandelbrot fractal on a canvas element.
 - **Performance Display**: The time taken to render the fractal is displayed on the page.
 
-##Usage
+## Usage
 
 1. Build the WebAssembly Module
 
