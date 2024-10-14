@@ -13,14 +13,14 @@ This project is a simple experiment to generate and display the Mandelbrot fract
 
 ## Usage
 
-1. Build the WebAssembly Module
+1. **Build the WebAssembly Module**
 
 Ensure you have wasm-pack installed:
 ```bash
 cargo install wasm-pack
 ```
 
-2. Build the project with:
+2. **Build the project with:**
 
 ```bash
 wasm-pack build --target web
@@ -28,7 +28,7 @@ wasm-pack build --target web
 
 This will generate a pkg folder containing the WebAssembly binary and JavaScript bindings.
 
-3. Serve the Files
+3. **Serve the Files**
 
 WebAssembly modules must be served over HTTP. Use a simple HTTP server:
 
@@ -45,9 +45,9 @@ npx http-server . -p 8080
 
 Navigate to http://localhost:8080 in your web browser.
 
-4. Render the Fractal
+4. **Render the Fractal**
 
-Click the Render button to generate and display the Mandelbrot fractal. The render time will be shown below the canvas.
+Click the *Render* button to generate and display the Mandelbrot fractal. The render time will be shown below the canvas.
 
 ## Files
 
