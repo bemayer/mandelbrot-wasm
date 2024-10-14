@@ -51,7 +51,7 @@ Click the *Render* button to generate and display the Mandelbrot fractal. The re
 
 ## Files
 
-- index.html
+- `index.html`
 
 ```html
 <!DOCTYPE html>
@@ -74,7 +74,8 @@ Click the *Render* button to generate and display the Mandelbrot fractal. The re
 </html>
 ```
 
-- src/lib.rs
+- `src/lib.rs`
+  
   Contains the Rust code that:
   - Calculates the Mandelbrot set.
   - Directly manipulates the DOM to create and append elements like the button, canvas, and render time display.
