@@ -1,0 +1,14 @@
+{
+  "name": "mandelbrot-wasm",
+  "version": "0.1.0",
+  "files": [
+    "mandelbrot_wasm_bg.wasm",
+    "mandelbrot_wasm.js",
+    "mandelbrot_wasm.d.ts"
+  ],
+  "module": "mandelbrot_wasm.js",
+  "types": "mandelbrot_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
